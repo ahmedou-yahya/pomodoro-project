@@ -1,2 +1,13 @@
 <particles  id= "particles"  [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
-<app-pomodoro></app-pomodoro>
+
+<h1>Pomodoro App</h1>
+
+<div class="controls">
+    <button type="button" class="btn btn-primary" (click)="switchToPomodoro()">Pomodoro</button>
+    <button type="button" class="btn btn-primary" (click)="switchToBreak()">Take Break</button>
+</div>
+
+<div [ngSwitch]="this.mode">
+    
+
+</div>
