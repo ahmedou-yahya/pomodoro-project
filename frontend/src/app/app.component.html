@@ -8,6 +8,6 @@
 </div>
 
 <div [ngSwitch]="this.mode">
-    
-
+    <app-pomodoro *ngSwitchCase="pomodoro" [m]=25 [s]=0 (onComplete)="onPomodoroComplete(content)"></app-pomodoro>
+    <app-pomodoro *ngSwitchCase="break" [m]=5 [s]=0 (onComplete)="onPomodoroComplete(content)"></app-pomodoro>
 </div>

@@ -1,11 +1,45 @@
 import { Component } from '@angular/core';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  mode = 'pomodoro';
+  message: String;
+  pomodoroCount = 0;
+
+  constructor(private modalService: NgbModal){}
+  
+  onPomodoroComplete(content): void{
+    switch(this.mode){
+      case 'pomodoro':
+        this.pomodoroCount += 1;
+        this.message = "Time to take break";
+        break;
+      case 'break':
+        this.message = "Time to get back";
+        break;
+    }
+    this.modalService.open(content).result.then((result) => this.onModalDismissed(), (reason) => this.onModalDismissed())
+  }
+
+  onModalDismissed(){
+    if(this.mode==='pomodoro'){
+      this.mode = 'break';
+    }
+    else{
+      this.mode = 'pomodoro';
+    }
+  }
+
+
+
+
+
+
   width: number = 100;
   height: number = 100;
   myStyle: Object = {
