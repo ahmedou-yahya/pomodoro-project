@@ -13,6 +13,14 @@ export class AppComponent {
 
   constructor(private modalService: NgbModal){}
   
+  switchToPomodoro(): void{
+    this.mode = 'pomodoro'
+  }
+
+  switchToBreak(): void{
+    this.mode = 'break'
+  }
+
   onPomodoroComplete(content): void{
     switch(this.mode){
       case 'pomodoro':
@@ -34,10 +42,6 @@ export class AppComponent {
       this.mode = 'pomodoro';
     }
   }
-
-
-
-
 
 
   width: number = 100;
